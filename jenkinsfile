@@ -4,7 +4,7 @@ pipeline {
         stage("Harsimranjitkaur- Build Docker Image") {
             steps {
             script {
-                sh 'docker build -t python-barcode/harsimranjitkaurgit  .'
+                sh "docker build -t my_python_image/harsimranjitkaur  ."
             }
             }
 
