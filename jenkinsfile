@@ -9,5 +9,27 @@ pipeline {
             }
 
         }
+
+        stage("Harsimranjitkaur- Login to Dockerhub") {
+            steps {
+            withCredentials([usernamePassword(credentialsId: 'dockerhub-ceredentials', usernameVariable: 'dockerhub_username', passwordVariable: 'dockerhub_password')]) {
+                    script {
+                        def dockerhubUrl = 'https://index.docker.io/v1/'
+                        def dockerhub-ceredentials = "${dockerhub_username}:${dockerhub_password}".getBytes().encodeBase64().toString()
+                        sh "docker login -u ${dockerhub_username} -p ${dockerhub_password} ${dockerhubUrl}"
+                    }
+                }
+            }
+
+        }
+
+        stage("Harsimranjitkaur- Push image to Dockerhub") {
+            steps {
+            script {
+                sh "docker push my_python_image/harsimranjitkaur  ."
+            }
+            }
+
+        }
     }
 }
