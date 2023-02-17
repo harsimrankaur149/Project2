@@ -4,6 +4,7 @@ pipeline {
         stage("Harsimranjitkaur- Build Docker Image") {
             steps {
             script {
+                sh "echo hello world"
                 sh "docker build -t my_python_image/harsimranjitkaur  ."
             }
             }
