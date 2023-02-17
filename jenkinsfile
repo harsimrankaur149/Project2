@@ -2,8 +2,10 @@ pipeline {
     agent any
     stages {
         stage("Harsimranjitkaur- Build Docker Image") {
+            steps {
             script {
                 sh 'docker build -t python-barcode/harsimranjitkaurgit  .'
+            }
             }
 
         }
